@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.example</groupId>
     <artifactId>SauceDemo</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <packaging>jar</packaging>
     <url>http://maven.apache.org</url>
+
     <name>Sample Serenity BDD project with JUnit</name>
+
     <profiles>
         <profile>
             <id>paralelo</id>
@@ -33,6 +33,7 @@
             </build>
         </profile>
     </profiles>
+
     <properties>
         <serenity.version>3.6.12</serenity.version>
         <serenity.maven.version>3.2.0</serenity.maven.version>
@@ -41,6 +42,7 @@
         <encoding>UTF-8</encoding>
         <parallel.tests>4</parallel.tests>
     </properties>
+
     <repositories>
         <repository>
             <snapshots>
@@ -67,6 +69,7 @@
             <url>https://mymavenrepo.com/repo/le8DLXMQn2dV2jW0nL7e/</url>
         </repository>
     </distributionManagement>
+
     <dependencies>
         <!-- Copiado de la clase-->
         <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
@@ -74,6 +77,7 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.4.7</version>
+            <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-core -->
         <dependency>
@@ -87,6 +91,7 @@
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-junit</artifactId>
             <version>3.6.12</version>
+            <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson-parent -->
         <dependency>
@@ -94,6 +99,7 @@
             <artifactId>gson-parent</artifactId>
             <version>2.10.1</version>
             <type>pom</type>
+            <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-screenplay -->
         <dependency>
@@ -116,6 +122,7 @@
             <version>${serenity.cucumber.version}</version>
             <scope>test</scope>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -123,6 +130,8 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
         <dependency>
             <groupId>org.assertj</groupId>
@@ -142,6 +151,7 @@
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-rest-assured</artifactId>
             <version>3.6.12</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
@@ -154,6 +164,7 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -184,6 +195,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

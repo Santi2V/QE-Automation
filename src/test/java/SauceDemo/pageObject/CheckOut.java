@@ -3,6 +3,7 @@ package SauceDemo.pageObject;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
+import org.junit.Assert;
 
 public class CheckOut extends PageObject {
     @FindBy(id = "first-name")
@@ -45,6 +46,12 @@ public class CheckOut extends PageObject {
 
     public void clickContinueButton() {
         continueButton.click();
+    }
+
+    public void onCheckout(){
+        String currentUrl = getDriver().getCurrentUrl();
+        String expectedUrl = "https://www.saucedemo.com/checkout-step-one.html";
+        Assert.assertEquals(currentUrl,expectedUrl);
     }
 
 }

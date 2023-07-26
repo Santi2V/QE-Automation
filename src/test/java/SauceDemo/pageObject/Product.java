@@ -26,7 +26,7 @@ public class Product extends PageObject {
     @FindBy(xpath = "//select[@class='product_sort_container']/option")
     private List<WebElementFacade> productSortOptions;
 
-    @FindBy(className = "bm-burger-button")
+    @FindBy(id = "react-burger-menu-btn")
     private WebElementFacade menuButton;
 
     @FindBy(id = "about_sidebar_link")
@@ -77,15 +77,12 @@ public class Product extends PageObject {
     }
     public boolean verifyCartBadge(int expectedCount){
         int badge = Integer.parseInt(shopping_cart_badge.getText());
-//        int count=0;
-//        int totalProducts = addToCartButtons.size();
-//        for (int i = 0; i < totalProducts; i++) {
-//            WebElement button = addToCartButtons.get(i);
-//            if (button.getText().equals("Remove")) {
-//                count++;
-//            }
-//        }
         if(expectedCount==badge) return true;
+        else return false;
+    }
+    public boolean cartNotEmpty(){
+        int badge = Integer.parseInt(shopping_cart_badge.getText());
+        if(badge>0) return true;
         else return false;
     }
 

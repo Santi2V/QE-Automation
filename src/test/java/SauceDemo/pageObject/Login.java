@@ -5,13 +5,13 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 
 public class Login extends PageObject {
-    @FindBy(xpath = "//input[@id='user-name']")
+    @FindBy(id="user-name")
     private WebElementFacade usernameInput;
 
-    @FindBy(xpath = "//input[@id='password']")
+    @FindBy(id="password")
     private WebElementFacade passwordInput;
 
-    @FindBy(xpath = "//input[@id='login-button']")
+    @FindBy(id="login-button")
     private WebElementFacade loginButton;
 
     @FindBy(xpath = "//div[@class='error-message-container']")

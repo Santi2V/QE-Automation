@@ -18,53 +18,42 @@ public class UserDefinitionSteps {
     }
 
     @When("^User logs in with a standard user$")
-
     public void userLogsIn() {
         user.Login("standard_user","secret_sauce");
     }
     @Then("^User should be on the Products page$")
-    public void onProductsPage()
+    public void afterloginProductsPage()
     {
-
+        user.onProductPage();
     }
-
-//    @Then("^User should be logged in successfully$")
-//    public void userLoggedInSuccessfully() {
-//        user.verifyLoginSuccess();
-//    }
-
-//    @Then("^User should be on the Products page$")
-//    public void userOnProductsPage() {
-//        user.verifyOnProductsPage();
-//    }
-
+    @Given ("^User is on the Products page$")
+    public void startsOnProductsPage()
+    {
+        user.onProductPage();
+    }
     @When("^User navigates to the About tab$")
     public void userNavigatesToAboutTab() {
-//        user.navigateToAboutPage();
+         user.About();
     }
 
     @Then("^User should be on the About page$")
     public void userOnAboutPage() {
-//        user.verifyOnAboutPage();
-        user.About();
+
+        user.verifyAbout();
     }
 
-    @Then("^User goes back to Product page$")
+    @And("^User goes back to the Product page$")
     public void userGoesBackToProductPage() {
-//        user.goBackToProductPage();
+        user.backOnProductPage();
     }
 
-//    @Given("^User on the Products page$")
-//    public void userOnProductsPage() {
-//        user.verifyOnProductsPage();
-//    }
 
-    @When("^User sort the products by (.*)$")
+    @When("^User sorts the products by (.*)$")
     public void userSortsProducts(String productSort) {
         user.FilterProduct(productSort);
     }
 
-    @Then("^User add (.*) to the cart which are the firsts showed$")
+    @Then("^User adds (.*) products to the cart which are the last shown$")
     public void userAddsProductsToCart(int productQuantity) {
         user.addToCart(productQuantity);
     }
@@ -74,27 +63,32 @@ public class UserDefinitionSteps {
         user.verifyBadgeCart(expectedCount);
     }
 
-    @When("^User navigate to the cart$")
+    @Given("^User has added products to the cart$")
+    public void cartNotEmpty(){
+     user.checkCart();
+    }
+
+    @When("^User navigates to the cart")
     public void userNavigatesToCart() {
         user.goToCart();
     }
 
-    @Then("^All the product information its saved$")
+    @Then("^All the product information is saved$")
     public void allProductInformationSaved() {
         user.saveItemDetails();
     }
-    @And("User proceed to checkout")
+    @And("User proceeds to checkout")
     public void userToCheckout() {
         user.goFromCartToCheckout();
     }
 
 
-    @Given("^User on the Checkout: User Information page$")
+    @Given("^User is on the Checkout: User Information page$")
     public void userOnUserInformationPage() {
-
+        user.onCheckout();
     }
 
-    @When("^User enter personal information and continue$")
+    @When("^User enters personal information and continues$")
     public void userEnterPersonalInformation() {
         String name="x";
         String lastname="x";
@@ -107,17 +101,16 @@ public class UserDefinitionSteps {
         user.verifyTotalPrice();
     }
 
-//    @Given("^User on the Checkout: Overview page$")
-//    public void userOnOverviewPage() {
-//        user.();
-//    }
+    @Given("^User has verified the total price$")
+    public void verifyTotalPrice(){ user.verifyTotalPrice();}
 
-    @When("^User check the payment, shipping, and price details$")
+
+    @When("^User checks the payment, shipping, and price details$")
     public void userChecksDetails() {
         user.generateReport();
     }
 
-    @Then("^User complete the purchase$")
+    @Then("^User completes the purchase$")
     public void completePurchase() {
         user.finish();
     }
@@ -126,6 +119,7 @@ public class UserDefinitionSteps {
     public void successMessageDisplayed() {
         user.verifySuccess();
     }
+
 }
 
 

@@ -27,7 +27,7 @@ public class CartPage extends PageObject {
     @FindBy(className = "inventory_item_price")
     private List<WebElementFacade> item_price;
 
-    @FindBy(className = "checkout_button")
+    @FindBy(id = "checkout")
     private WebElementFacade checkout;
 
     public void saveDetails(){
